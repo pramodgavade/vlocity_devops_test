@@ -32,6 +32,7 @@ echo "***************list of modified files***************"
 git diff --name-only $currGitCommit $prevGitCommit
 
 tempDirectory="temp-dir"
+deploymentPath="force-app/main/default"
 changeDetected=false
 
 echo "***************building force-app folder***************"
@@ -85,12 +86,22 @@ if $1; then
     cp -r $tempDirectory/force-app $WORKSPACE
 fi
 
-# convert to Metadata API format using sfdx
+# verify force-app folder, components from force-app folder will be deployed
+echo "***************Deployment folder***************"
+cd $deploymentPath
+ls
+
+# navigate to workspace
+cd $WORKSPACE
+
+# deploy force-app using sfdx
+# reference https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_force_source.htm
 echo "***************Salesforce CLI***************"
 sfdx --version
-sfdx force:source:convert -d deployment
+sfdx force:auth:jwt:grant --clientid $clientId --jwtkeyfile $secretFile --username $userName --instanceurl $serverUrl
 
-# verify deployment folder, deployment folder is use for ANT deployment
-echo "***************Deployment folder***************"
-cd deployment
-ls
+if [[ $target == *"validate"* ]]; then
+    sfdx force:source:deploy -l $testLevel -u $userName -p $deploymentPath -c 
+else
+    sfdx force:source:deploy -l $testLevel -u $userName -p $deploymentPath
+fi

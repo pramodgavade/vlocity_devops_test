@@ -108,3 +108,30 @@ else
 fi
 
 vlocity -sfdx.username $userName -job jobs/deploy.yaml packDeploy --verbose true --simpleLogging true
+
+
+: '
+echo "####### Login"
+sfdx force:auth:logout -u $userName -p
+sfdx force:auth:jwt:grant --clientid $clientId --jwtkeyfile $secretFile --username $userName --instanceurl $serverUrl
+
+echo "####### Create SF Delta Package"
+sfdx plugins:install vlocityestools
+if [ -d salesforce_sfdx_delta ]; then
+    rm -rf salesforce_sfdx_delta  
+fi
+sfdx vlocityestools:sfsource:createdeltapackage -u $userName -p ins -d salesforce_sfdx
+
+
+if [ -d salesforce_sfdx_delta ]; then
+    echo "####### force:source:deploy"
+    sfdx force:source:deploy -l $testLevel -u $userName -p salesforce_sfdx_delta
+else
+    echo "### NO SF DELTA-FOLDER FOUND"
+fi
+
+echo "####### packDeploy"
+vlocity -sfdx.username $userName  -job Deploy_Delta.yaml packDeploy --verbose true --simpleLogging true
+echo "####### runApex"
+vlocity -sfdx.username $userName --nojob runApex -apex apex/RunProductBatchJobs.cls --verbose true --simpleLogging true
+'

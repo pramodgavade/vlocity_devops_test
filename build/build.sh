@@ -98,6 +98,7 @@ cd $WORKSPACE
 # reference https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_force_source.htm
 echo "***************Salesforce CLI***************"
 sfdx --version
+sfdx force:auth:logout -u $userName -p
 sfdx force:auth:jwt:grant --clientid $clientId --jwtkeyfile $secretFile --username $userName --instanceurl $serverUrl
 
 if [[ $target == *"validate"* ]]; then

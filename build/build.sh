@@ -106,3 +106,5 @@ if [[ $target == *"validate"* ]]; then
 else
     sfdx force:source:deploy -l $testLevel -u $userName -p $deploymentPath
 fi
+
+vlocity -sfdx.username $userName -job jobs/deploy.yaml packDeploy --verbose true --simpleLogging true

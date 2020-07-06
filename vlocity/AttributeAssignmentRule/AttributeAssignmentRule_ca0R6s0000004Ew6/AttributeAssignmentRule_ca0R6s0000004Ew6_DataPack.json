@@ -1,0 +1,12 @@
+{
+    "%vlocity_namespace%__AttributeId__c": "",
+    "%vlocity_namespace%__Data__c": "",
+    "%vlocity_namespace%__IsActive__c": false,
+    "%vlocity_namespace%__SObjectTypes__c": "",
+    "%vlocity_namespace%__Service__c": "",
+    "%vlocity_namespace%__Type__c": "Formula",
+    "Name": "AttributeAssignmentRule__ca0R6s0000004Ew6",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__AttributeAssignmentRule__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__AttributeAssignmentRule__c/AttributeAssignmentRule__ca0R6s0000004Ew6"
+}

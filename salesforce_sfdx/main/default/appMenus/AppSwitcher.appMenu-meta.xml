@@ -77,10 +77,6 @@
         <type>ConnectedApp</type>
     </appMenuItems>
     <appMenuItems>
-        <name>standard__Content</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
         <name>vlocity_ins__VlocityConsoleApp</name>
         <type>CustomApplication</type>
     </appMenuItems>

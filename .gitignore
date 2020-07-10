@@ -38,6 +38,7 @@ force-app/main/default/applications/Relationship_Management.app-meta.xml
 force-app/main/default/applications/Sales_Leadership.app-meta.xml
 force-app/main/default/applications/Sales_Operations.app-meta.xml
 force-app/main/default/applications/standard__LightningSales.app-meta.xml
+force-app/main/default/applications/standard__LightningInstrumentation.app-meta.xml
 
 #list views
 **/listViews

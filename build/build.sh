@@ -32,10 +32,10 @@ echo "***************list of modified files***************"
 git diff --name-only $currGitCommit $prevGitCommit
 
 tempDirectory="temp-dir"
-deploymentPath="force-app/main/default"
+deploymentPath="salesforce_sfdx"
 changeDetected=false
 
-echo "***************building force-app folder***************"
+echo "***************building salesforce_sfdx folder***************"
 
 # loop through list of modified files
 git diff -z --name-only $currGitCommit $prevGitCommit|
@@ -43,8 +43,8 @@ while read -d $'\0' fileName
 do
     echo "current file : $fileName"
         
-        # if file modified file is from force-app/main/default
-        if [[ $fileName == *"force-app"* ]]; then
+        # if file modified file is from salesforce_sfdx/main/default
+        if [[ $fileName == *"salesforce_sfdx"* ]]; then
             echo "including $fileName"
             
             changeDetected=true           
@@ -80,13 +80,13 @@ if $1; then
     fi    
 
     # rename force-app folder
-    mv force-app force-app-old
+    mv salesforce_sfdx salesforce_sfdx-old
 
     # copy force-app folder from temp directory to workspace
-    cp -r $tempDirectory/force-app $WORKSPACE
+    cp -r $tempDirectory/salesforce_sfdx $WORKSPACE
 fi
 
-# verify force-app folder, components from force-app folder will be deployed
+# verify salesforce_sfdx folder, components from salesforce_sfdx folder will be deployed
 echo "***************Deployment folder***************"
 cd $deploymentPath
 ls

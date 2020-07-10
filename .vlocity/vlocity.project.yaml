@@ -1,0 +1,66 @@
+Name: vlocity
+ignoreDependencies: false
+VlocityDataPackKeys:
+    - AttributeAssignmentRule/a0R6s0000004Ew6
+VlocityTypesToFetch:
+    - AttributeAssignmentRule
+    - AttributeCategory
+    - CalculationMatrix
+    - CalculationProcedure
+    - Catalog
+    - ContextAction
+    - ContextDimension
+    - ContextScope
+    - ContractType
+    - CpqConfigurationSetup
+    - CustomFieldMap
+    - DataRaptor
+    - Document
+    - DocumentClause
+    - DocumentTemplate
+    - EntityFilter
+    - IntegrationProcedure
+    - IntegrationRetryPolicy
+    - InterfaceImplementation
+    - ItemImplementation
+    - ManualQueue
+    - ObjectClass
+    - ObjectContextRule
+    - ObjectLayout
+    - OfferingProcedure
+    - OfferMigrationPlan
+    - OmniScript
+    - OrchestrationDependencyDefinition
+    - OrchestrationItemDefinition
+    - OrchestrationPlanDefinition
+    - OrchestrationQueueAssignmentRule
+    - Pricebook2
+    - PriceList
+    - PricingPlan
+    - PricingVariable
+    - Product2
+    - Promotion
+    - RelationshipGraph
+    - Rule
+    - StoryObjectConfiguration
+    - String
+    - System
+    - ThorOrchestrationQueue
+    - TimePlan
+    - TimePolicy
+    - UIFacet
+    - UISection
+    - VlocityAction
+    - VlocityAttachment
+    - VlocityCard
+    - VlocityDataStore
+    - VlocityFunction
+    - VlocityPicklist
+    - VlocityScheduledJob
+    - VlocitySearchWidgetSetup
+    - VlocityStateModel
+    - VlocityUILayout
+    - VlocityUITemplate
+    - VqMachine
+    - VqResource
+SalesforceTypesToFetch:
